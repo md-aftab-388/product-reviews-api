@@ -1,0 +1,92 @@
+{
+  "info": {
+    "_postman_id": "11aa1111-2a22-3bbb-4c44-5ddd6eeef77f",
+    "name": "Product Reviews API",
+    "description": "Collection for testing the Product Reviews API endpoints",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Welcome",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}",
+          "host": ["{{baseUrl}}"]
+        },
+        "description": "Get welcome message and API information"
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Reviews",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/reviews",
+          "host": ["{{baseUrl}}"],
+          "path": ["reviews"]
+        },
+        "description": "Retrieve all product reviews"
+      },
+      "response": []
+    },
+    {
+      "name": "Create Review",
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "{{baseUrl}}/reviews",
+          "host": ["{{baseUrl}}"],
+          "path": ["reviews"]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"productId\": 1,\n    \"rating\": 5,\n    \"comment\": \"This product is amazing! Highly recommended.\"\n}"
+        },
+        "description": "Create a new product review"
+      },
+      "response": []
+    },
+    {
+      "name": "Get Reviews by Product ID",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/reviews/1",
+          "host": ["{{baseUrl}}"],
+          "path": ["reviews", "1"]
+        },
+        "description": "Retrieve all reviews for a specific product"
+      },
+      "response": []
+    },
+    {
+      "name": "Get Top Rated Products",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/reviews/top-rated",
+          "host": ["{{baseUrl}}"],
+          "path": ["reviews", "top-rated"]
+        },
+        "description": "Get the top 3 highest rated products"
+      },
+      "response": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000",
+      "type": "string"
+    }
+  ]
+}
