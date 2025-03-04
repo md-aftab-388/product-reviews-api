@@ -1,6 +1,7 @@
 const express = require('express');
 require('dotenv').config();
 const db = require('./config/database');
+const reviewRoutes = require('./routes/reviewRoutes');
 const cors = require('cors');
 const morgan = require('morgan');
 // Initialize Express app
@@ -12,6 +13,9 @@ app.use(cors());
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Routes
+app.use('/reviews', reviewRoutes);
 
 // Default route
 app.get('/', (req, res) => {
